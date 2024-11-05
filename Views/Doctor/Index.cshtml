@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Doctor>
+
+<h1>Doctors</h1>
+<a asp-action="Create" class="btn btn-primary">Create New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Specialty)</th>
+            <th>@Html.DisplayNameFor(m => m.Hospital.Name)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.Name</td>
+                <td>@doctor.Specialty</td>
+                <td>@doctor.Hospital?.Name</td> <!-- Display the hospital name if available -->
+                <td>
+                    <a asp-action="Edit" asp-route-id="@doctor.DoctorId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@doctor.DoctorId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@doctor.DoctorId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

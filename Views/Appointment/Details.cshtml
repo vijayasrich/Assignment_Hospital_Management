@@ -1,0 +1,12 @@
+﻿@model Assignment_Hospital_Management.Models.Appointment
+
+<h1>Appointment Details</h1>
+
+<div>
+    <h5>Doctor: @Model.Doctor.Name</h5>
+    <h5>Patient: @Model.Patient.Name</h5>
+    <p>Appointment Date: @Model.AppointmentDate.ToShortDateString()</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.AppointmentId" class="btn btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

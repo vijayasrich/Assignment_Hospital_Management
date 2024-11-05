@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Appointment>
+
+<h1>Appointments</h1>
+<a asp-action="Create" class="btn btn-primary">Create New</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Patient.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Doctor.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.AppointmentDate)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Patient?.Name</td>
+                <td>@appointment.Doctor?.Name</td>
+                <td>@appointment.AppointmentDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@appointment.AppointmentId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@appointment.AppointmentId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@appointment.AppointmentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

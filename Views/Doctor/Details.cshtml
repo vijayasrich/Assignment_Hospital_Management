@@ -1,0 +1,12 @@
+﻿@model Assignment_Hospital_Management.Models.Doctor
+
+<h1>Doctor Details</h1>
+
+<div>
+    <h5>Name: @Model.Name</h5>
+    <p>Specialty: @Model.Specialty</p>
+    <p>Hospital ID: @Model.HospitalId</p>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.DoctorId" class="btn btn-primary">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>
